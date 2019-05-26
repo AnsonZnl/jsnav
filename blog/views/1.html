@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="file" type="file">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    var file=$('#file');
+    console.log(file.val())
+    file.on('change',function () {
+        console.log(file.files,file[0].files)
+
+    })
+
+
+    var formData = new FormData();
+    formData.append("nickName", 'sddd');
+
+    formData.append('x','xxx')
+    console.log(formData)
+</script>
+</body>
+</html>

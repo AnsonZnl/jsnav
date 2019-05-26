@@ -1,0 +1,103 @@
+<%- include('header') %>
+
+<div class="ui grid">
+    <div class="four wide column"></div>
+    <div class="eight wide column">
+        <form class="ui form segment" enctype="multipart/form-data">
+            <div class="field required">
+                <label>用户名</label>
+                <input id="name" placeholder="用户名" type="text" name="name">
+            </div>
+            <div class="field required">
+                <label>密码</label>
+                <input id="password" placeholder="密码" type="password" name="password">
+            </div>
+            <div class="field required">
+                <label>重复密码</label>
+                <input id="repassword" placeholder="重复密码" type="password" name="repassword">
+            </div>
+            <div class="field required">
+                <label>性别</label>
+                <select id="gender" class="ui compact selection dropdown" name="gender">
+                    <option value="m">男</option>
+                    <option value="f">女</option>
+                    <option value="x">保密</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>头像</label>
+                <input id="file" type="file" accept="image/*" name="avatar">
+            </div>
+            <div class="field required">
+                <label>个人简介</label>
+                <textarea id="bio" name="bio" rows="5" placeholder="30字以内"></textarea>
+            </div>
+            <input id="submit" type="text" class="ui button fluid" value="注册">
+        </form>
+    </div>
+</div>
+
+<%- include('footer') %>
+<script>
+    $(function () {
+        $("#submit").on('click', function () {
+            var name = $('#name').val();
+            var password = $('#password').val();
+            var repassword = $('#repassword').val();
+            var bio = $('#bio').val();
+            var gender = $('#gender').val();
+            var avatar;
+            if ($('#file')[0].files.length == 1) {
+                avatar = $('#file')[0].files[0]
+            } else {
+                avatar = ''
+            }
+            var data = new FormData();
+
+            data.append('name',name);
+            data.append('password',password);
+            data.append('repassword',repassword);
+            data.append('gender',gender);
+            data.append('avatar',avatar);
+            data.append('bio',bio);
+            console.log(1, data)
+
+            //avatar格式错误报错,不上传头像正常，上传头像报错
+            if (!(name.length >= 1 && name.length <= 10)) {
+                alert('名字请限制在 1-10 个字符')
+                return
+            }
+            if (['m', 'f', 'x'].indexOf(gender) === -1) {
+                alert('性别只能是 m、f 或 x')
+                return
+            }
+            if (!(bio.length >= 1 && bio.length <= 30)) {
+                alert('请填写合适的简介字数')
+                return
+            }
+            if (password.length < 6) {
+                alert('密码至少 6 个字符')
+                return
+            }
+            if (password !== repassword) {
+                alert('两次输入密码不一致')
+                return
+            }
+            $.ajax({
+                url: 'http://localhost:3000/login/post',
+                type: 'post',
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (r) {
+                    console.log(3, r)
+                    // alert(r.message);
+                    location.href = '/blog'
+                }, error: function (r) {
+                    console.log(1111, r)
+                }
+            })
+        })
+    })
+</script>

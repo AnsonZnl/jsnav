@@ -1,0 +1,29 @@
+<%- include('header') %>
+<% if (blog.length >= 1) { %>
+    <% blog.forEach(function (blog) { %>
+        <%- include('components/blog-content', { blog: blog }) %>
+    <% }) %>
+<% } else { %>
+    <section style="width: 600px;margin: 0 auto">
+        <h1>您还没有发表过blog</h1>
+        <a href="/blog/create">快去发表您的第一篇博客吧</a>
+    </section>
+<% } %>
+
+<%- include('footer') %>
+<script>
+    $(function () {
+        //删除文章
+        $(".del").on('click', function () {
+            var blogId = $(this).attr('data-id')
+            $.ajax({
+                url: 'http://localhost:3000/blog/' + blogId + '/remove',
+                type: 'get',
+                success: function (r) {
+                    console.log(3, r)
+                    location.href = '/blog/' + r.blogId
+                }
+            })
+        })
+    })
+</script>

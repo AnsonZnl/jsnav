@@ -1,0 +1,81 @@
+<div class="ui grid">
+    <div class="four wide column"></div>
+    <div class="eight wide column">
+        <div class="ui segment">
+            <div class="ui minimal comments">
+                <h3 class="ui dividing header">留言</h3>
+                <% comments.forEach(function (comment) { %>
+                    <div class="comment">
+            <span class="avatar">
+                <% if(comment.author.avatar) { %>
+                    <img class="avatar" src="/img/<%= comment.author.avatar %>">
+                <% } else{ %>
+                    <img class="avatar" src="/img/avatar.png">
+                <% } %>
+            </span>
+                        <div class="content">
+                            <a class="author"
+                               href="/blog?author=<%= comment.author._id %>"><%= comment.author.name %></a>
+                            <div class="metadata">
+                                <span class="date"><%= comment.created_at %></span>
+                            </div>
+                            <div class="text"><%- comment.content %></div>
+
+                            <% if (user && comment.author._id && user._id.toString() === comment.author._id.toString()) { %>
+                                <div class="actions">
+                                    <span class="reply del_comment" data-comment-id="<%= comment._id %>">删除</span>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+
+                <% if (user) { %>
+                    <form class="ui reply form">
+                        <input id="blogId" name="blogId" value="<%= blog._id %>" hidden>
+                        <div class="field">
+                            <textarea id="content" name="content"></textarea>
+                        </div>
+                        <input id="submit" type="button" class="ui icon button" value="留言"/>
+                    </form>
+                <% } %>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        //发表评论
+        $("#submit").on('click', function () {
+            var blogId = $('#blogId').val()
+            var content = $('#content').val()
+            if (blogId && content) {
+                $.ajax({
+                    url: '/comments',
+                    type: 'post',
+                    data: {blogId: blogId, content: content},
+                    success: function (r) {
+                        console.log(3, r)
+                        location.reload()
+                    }
+                })
+            } else {
+                alert('内容不能为空')
+            }
+        });
+        //删除评论
+        $(".del_comment").on('click', function () {
+            var commentId = $(this).attr('data-comment-id');
+            $.ajax({
+                url: '/comments/' + commentId + '/remove',
+                type: 'get',
+                data: {commentId: commentId},
+                success: function (r) {
+                    console.log(3, r)
+                    location.reload()
+                }
+            })
+        });
+    }
+</script>

@@ -1,4 +1,4 @@
-# blog-vue
+# jsnav
+演示地址：http://www.jsnav.com
 
-
-- 基于[N-blog](https://github.com/nswbmw/N-blog) + Vue 开发的前后端分离的blog系统
+使用Express+mongoDB搭建的blog系统，基于[N-blog](https://github.com/nswbmw/N-blog) 。

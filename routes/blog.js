@@ -156,6 +156,7 @@ router.get('/:blogId/remove', checkLogin, function (req, res, next) {
         .then(function (blog) {
             if (!blog) {
                 res.json({message: '文章不存在'})
+                console.log(blog)
                 throw new Error('文章不存在')
             }
             if (blog.author._id.toString() !== author.toString()) {

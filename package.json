@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "start": "NODE_ENV=production pm2 start index.js --name 'myblog'"
   },
   "keywords": [],
   "author": "",

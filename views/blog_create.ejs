@@ -1,20 +1,21 @@
 <%- include('header') %>
-
+<div class="wrap">
 <div class="ui grid">
-    <div class="four wide column">
-        <a class="avatar avatar-link"
+    <div class="sixteen wide column">
+        <div class="avatar avatar-link"
            href="/blog?author=<%= user._id %>"
            data-title="<%= user.name %> | <%= ({m: '男', f: '女', x: '保密'})[user.gender] %>"
            data-content="<%= user.bio %>">
             <% if (user.avatar){ %>
                 <img class="avatar" src="/img/<%= user.avatar %>">
+                 <span style="display:inline-block;"><%= user.name %></span>
             <% }else { %>
                 <img class="avatar" src="/img/avatar.png">
             <% } %>
-        </a>
+        </div>
     </div>
 
-    <div class="eight wide column">
+    <div class="sixteen wide column">
         <form class="ui form segment">
             <div class="field required">
                 <label>标题</label>
@@ -28,7 +29,7 @@
         </form>
     </div>
 </div>
-
+</div>
 <%- include('footer') %>
 <script>
     $(function () {

@@ -1,0 +1,40 @@
+<div class="wrap">
+<div class="blog-content">
+    <div class="ui">
+
+        <div class="sixteen wide column">
+            <div class="ui">
+
+                     <div class="sixteen wide column">
+                        <a class="avatar avatar-link"
+                        href="/blog?author=<%= blog.author._id %>"
+                        data-title="<%= blog.author.name %> | <%= ({m: '男', f: '女', x: '保密'})[blog.author.gender] %>"
+                        data-content="<%= blog.author.bio %>">
+                            <% if(blog.author.avatar) { %>
+                                <img class="avatar" src="/img/<%= blog.author.avatar %>">
+                            <% } else{ %>
+                                <img class="avatar" src="/img/avatar.png">
+                            <% } %>
+                        </a>
+                        <span><%= blog.author.name %> </span>
+                    </div>
+
+                <h3><a href="/blog/<%= blog._id %>"><%= blog.title %></a></h3>
+                <div class="blog-content-hide"><%- blog.content %></div>
+                <div>
+                    <span class="tag"><%= blog.created_at %></span>
+                    <span class="tag right">
+                    <span>浏览(<%= blog.pv || 0 %>)</span>
+                    <span>留言(<%= blog.commentsCount || 0 %>)</span>
+                        <% if (user && blog.author._id && user._id.toString() === blog.author._id.toString()) { %>
+                        <br>
+                        <a href="/blog/<%= blog._id %>/edit">编辑</a>
+                        <span data-id="/<%= blog._id %>" class="del">删除</span>
+
+                        <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

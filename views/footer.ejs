@@ -1,3 +1,9 @@
+<div class="copyright">
+<p>Copyright @  冀ICP备18016811号-3</p>
+<p>种一棵树最好的时间在十年前，其次是现在。</p>
+
+
+</div>
 <script type="text/javascript">
     $(document).ready(function () {
         // 点击按钮弹出下拉框
@@ -16,6 +22,20 @@
                 type: 'get',
                 success: function (r) {
                     location.href = '/blog'
+                }
+            })
+        })
+    })
+        //删除文章
+     $(function () {
+        $(".del").on('click', function () {
+            var blogId = $(this).attr('data-id')
+            $.ajax({
+                url: 'http://localhost:3000/blog/' + blogId + '/remove',
+                type: 'get',
+                success: function (r) {
+                    console.log(3, r)
+                    location.href = '/blog/' + r.blogId
                 }
             })
         })

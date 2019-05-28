@@ -1,22 +1,17 @@
 <div class="wrap">
 <div class="blog-content">
     <div class="ui">
-
-        <div class="sixteen wide column">
             <div class="ui">
-
                      <div class="sixteen wide column">
-                        <a class="avatar avatar-link"
-                        href="/blog?author=<%= blog.author._id %>"
-                        data-title="<%= blog.author.name %> | <%= ({m: '男', f: '女', x: '保密'})[blog.author.gender] %>"
-                        data-content="<%= blog.author.bio %>">
+                        <a class="avatar avatar-link" href="/blog?author=<%= blog.author._id %>" >
                             <% if(blog.author.avatar) { %>
                                 <img class="avatar" src="/img/<%= blog.author.avatar %>">
+                                <span><%= blog.author.name %> </span>
                             <% } else{ %>
                                 <img class="avatar" src="/img/avatar.png">
+                                <span><%= blog.author.name %> </span>
                             <% } %>
                         </a>
-                        <span><%= blog.author.name %> </span>
                     </div>
 
                 <h3><a href="/blog/<%= blog._id %>"><%= blog.title %></a></h3>
@@ -29,12 +24,11 @@
                         <% if (user && blog.author._id && user._id.toString() === blog.author._id.toString()) { %>
                         <br>
                         <a href="/blog/<%= blog._id %>/edit">编辑</a>
-                        <span data-id="/<%= blog._id %>" class="del">删除</span>
+                        <input type='button' value="删除" data-id="/<%= blog._id %>" id="del" onclick="del()">
 
                         <% } %>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>

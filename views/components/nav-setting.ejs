@@ -6,7 +6,7 @@
                 <% if (user) { %>
                     <a class="item" href="/blog?author=<%= user._id %>">个人主页</a>
                     <a class="item" href="/blog/create">发表文章</a>
-                    <a class="item" id="logout">登出</a>
+                    <a class="item logout">账号登出</a>
                 <% } else { %>
                     <a class="item" href="/signin">登录</a>
                     <a class="item" href="/login">注册</a>

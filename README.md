@@ -6,6 +6,8 @@
 ## node-express
 学习自https://github.com/nswbmw/N-blog,使用 Express + MongoDB  
 #### 更改的地方
++ js文件的压缩混淆
++ 显示个人主页
 + 改为更流行的Mongoose操作数据库的形式
 + 访问时改为更常见的用户名形式  /blog/用户名/blog
 + 设置了一个默认头像，public/img/avatar.png

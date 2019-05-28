@@ -6,7 +6,7 @@
     </div>
     <div class="menu">
         <% if (user) { %>
-          <a class="item" id="logout" href='javascript:0;'>登出</a>
+          <a class="item logout" href='javascript:0;'>账号登出</a>
           <a class="item" href="/blog/create">发表文章</a>
           <a class="item" href="/blog?author=<%= user._id %>">个人主页</a>
         <% } else { %>

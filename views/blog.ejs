@@ -1,31 +1,30 @@
 <%- include('header') %>
 
+<% if(blog.name){ %>
+    <%- include('components/user-details') %>
+<% } %>
+
 <% if (blog.length >= 1) { %>
 
 <div class="wrap">
-
     <% blog.forEach(function (blog) { %>
-    
     <div class='content-hide'>
   <div class="blog-content">
     <div class="ui grid">
         <div class="sixteen wide column">
             <div class="ui segment">
              <div class="sixteen wide column">
-                <a class="avatar avatar-link"
-                href="/blog?author=<%= blog.author._id %>"
-                data-title="<%= blog.author.name %> | <%= ({m: '男', f: '女', x: '保密'})[blog.author.gender] %>"
-                data-content="<%= blog.author.bio %>">
+                <a class="avatar avatar-link" href="/blog?author=<%= blog.author._id %>">
                     <% if(blog.author.avatar) { %>
                         <img class="avatar" src="/img/<%= blog.author.avatar %>">
+                        <span><%= blog.author.name %></span>
                     <% } else{ %>
                         <img class="avatar" src="/img/avatar.png">
+                        <span><%= blog.author.name %></span>
                     <% } %>
                 </a>
-                <span><%= blog.author.name %></span>
             </div>
-
-               <h3><a href="/blog/<%= blog._id %>"><%= blog.title %></a></h3>
+               <h3><a class="blog-title" href="/blog/<%= blog._id %>"><%= blog.title %></a></h3>
                <div>
                     <span class="tag"><%= blog.created_at %></span>
                     <span class="tag right">
@@ -41,10 +40,10 @@
 </div>
     <% }) %>
 <% } else { %>
-    <section style="width: 600px;margin: 0 auto">
+    <div class="wrap">
         <h1>您还没有发表过blog</h1>
         <a href="/blog/create">快去发表您的第一篇博客吧</a>
-    </section>
+    </div>
 <% } %>
 </div>
 

@@ -1,32 +1,27 @@
+<div class="wrap">
 <div class="ui grid">
-    <div class="sixteen wide column"></div>
     <div class="sixteen wide column">
-        <div class="ui segment">
             <div class="ui minimal">
                 <h3 class="ui dividing header">留言</h3>
                 <% comments.forEach(function (comment) { %>
                     <div class="comment">
-            <span class="avatar">
+            <a class="avatar" href="/blog?author=<%= user._id %>">
                 <% if(comment.author.avatar) { %>
                     <img class="avatar" src="/img/<%= comment.author.avatar %>">
+                    <span><%= user.name %></span>
                 <% } else{ %>
                     <img class="avatar" src="/img/avatar.png">
+                    <span><%= user.name %></span>
                 <% } %>
-            </span>
-                        <div class="content">
-                            <a class="author"
-                               href="/blog?author=<%= comment.author._id %>"><%= comment.author.name %></a>
-                            <div class="metadata">
-                                <span class="date"><%= comment.created_at %></span>
-                            </div>
-                            <div class="text"><%- comment.content %></div>
-
-                            <% if (user && comment.author._id && user._id.toString() === comment.author._id.toString()) { %>
-                                <div class="actions">
-                                    <span class="reply del_comment" data-comment-id="<%= comment._id %>">删除</span>
-                                </div>
-                            <% } %>
-                        </div>
+            </a>
+                           
+                <div>评论内容：<%- comment.content %></div>
+                <div class="metadata">
+                    <span class="date"><%= comment.created_at %></span>
+                </div>
+                <% if (user && comment.author._id && user._id.toString() === comment.author._id.toString()) { %>
+                        <input type="button" value="删除" class="reply del_comment" data-comment-id="<%= comment._id %>">
+                <% } %>
                     </div>
                 <% }) %>
 
@@ -61,7 +56,7 @@
                     }
                 })
             } else {
-                alert('内容不能为空')
+                alert('内容不能为空!')
             }
         });
         //删除评论
@@ -72,7 +67,6 @@
                 type: 'get',
                 data: {commentId: commentId},
                 success: function (r) {
-                    console.log(3, r)
                     location.reload()
                 }
             })

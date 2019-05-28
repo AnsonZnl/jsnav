@@ -7,10 +7,10 @@
                     <div class="comment">
             <a class="avatar" href="/blog?author=<%= user._id %>">
                 <% if(comment.author.avatar) { %>
-                    <img class="avatar" src="/img/<%= comment.author.avatar %>">
+                    <img src="/img/<%= comment.author.avatar %>">
                     <span><%= user.name %></span>
                 <% } else{ %>
-                    <img class="avatar" src="/img/avatar.png">
+                    <img src="/img/avatar.png">
                     <span><%= user.name %></span>
                 <% } %>
             </a>

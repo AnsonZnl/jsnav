@@ -16,10 +16,10 @@
              <div class="sixteen wide column">
                 <a class="avatar avatar-link" href="/blog?author=<%= blog.author._id %>">
                     <% if(blog.author.avatar) { %>
-                        <img class="avatar" src="/img/<%= blog.author.avatar %>">
+                        <img src="/img/<%= blog.author.avatar %>">
                         <span><%= blog.author.name %></span>
                     <% } else{ %>
-                        <img class="avatar" src="/img/avatar.png">
+                        <img src="/img/avatar.png">
                         <span><%= blog.author.name %></span>
                     <% } %>
                 </a>

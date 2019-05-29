@@ -1,31 +1,11 @@
-# jsnav
-演示地址：http://www.jsnav.top/posts
-
-使用Express+mongoDB搭建的blog系统，基于[N-blog](https://github.com/nswbmw/N-blog) 。
-
-## node-express
-学习自https://github.com/nswbmw/N-blog,使用 Express + MongoDB  
-#### 更改的地方
-+ js文件的压缩混淆
-+ 显示个人主页
-+ 改为更流行的Mongoose操作数据库的形式
-+ 访问时改为更常见的用户名形式  /blog/用户名/blog
-+ 设置了一个默认头像，public/img/avatar.png
-+ 这里的许多查询都用了callback形式，似乎不太合适，待完善修改
-+ 一对多查询，根据用户查相关blog ，方法是在blog中查公共的'author'字段'  
-+ 注意！！crud在后端都是异步的，连续操作结果不对，注意下是不是因为异步结果未返回
-+ 时间字符串格式化,难过的哭泣，网上都没查到.mongoose的timestamps,createdAt无法格式化，即在模版里展示默认的createdAt,怎么格式化都无效.这里另设了一个属性替代createdAt,才实现  
-
-## node-express-api
-使用 Express + MongoDB 搭建多人博客
-自己改造为api接口形式
-### 上传文件，使用ajax+FormDada！！！！
-大致改造完成，下一步，改为前后分离   暂停...
-
-原项目地址：https://github.com/byInWind/express
-
+# JsNav
+> 使用Express+mongoDB搭建的多人blog系统
 
 **预览地址：** http://www.jsnav.top
+
+
+
+
 ## 文件目录：    
 ```
 ├── index.js(程序主文件)
@@ -38,8 +18,9 @@
 |—— pubilc(存放静态文件，如样式、图片等)
 |    |—— css
 |        |—— style.css
-|    |—— img
+|    |—— img(存放服务器图片)
 |    |—— js
+|        |—— index.js
 ├── routes(存放路由文件)
 |    ├── index.js
 |    ├── posts.js
@@ -86,11 +67,12 @@
 - [x] 修改文章
 - [x] 留言
 - [x] 评论
+- [x] 添加个人主页
 - [ ] 分页
 - [ ] 标签
 - [ ] 二级评论
 ## 部分截图
-
+**PC端**
 ![注册](https://upload-images.jianshu.io/upload_images/7072486-5590ce1d0c5f7b6a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![登陆](https://upload-images.jianshu.io/upload_images/7072486-8b6857f99a0644d1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -101,13 +83,36 @@
 
 ![博客发表页](https://upload-images.jianshu.io/upload_images/7072486-5288494cec50122a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+**手机端**
+
+![主页](https://upload-images.jianshu.io/upload_images/7072486-76734ee63d71fe0c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![发表页](https://upload-images.jianshu.io/upload_images/7072486-1737efc47e15addc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![个人中心](https://upload-images.jianshu.io/upload_images/7072486-df0e30cbff61a1f9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![文章](https://upload-images.jianshu.io/upload_images/7072486-d93be5ad76ec6bf4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![注册页](https://upload-images.jianshu.io/upload_images/7072486-d172e28c53a612dd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![登陆页](https://upload-images.jianshu.io/upload_images/7072486-9f14f96f2295d78a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
 
 
 ## Error log
 - 出了Bug，仔细看Error log.
-- 注册是图片必须上传(要放在public/img下)，否则会报错 `Callback must be a function`。
+- 注册是图片必须上传(要放在public/img下)，否则会报错 `Callback must be a function`
 - 仔细阅读教程，可以减少很多低级错误。
 - 删除功能有bug
+- js文件的压缩混淆
+- 改为更流行的Mongoose操作数据库的形式
+- 访问时改为更常见的用户名形式  /blog/用户名/blog
+- 设置了一个默认头像，public/img/avatar.png
+- 这里的许多查询都用了callback形式，似乎不太合适，待完善修改
+- 一对多查询，根据用户查相关blog ，方法是在blog中查公共的'author'字段'  
+- 注意！！crud在后端都是异步的，连续操作结果不对，注意下是不是因为异步结果未返回
+- 时间字符串格式化,难过的哭泣，网上都没查到.mongoose的timestamps,createdAt无法格式化，即在模版里展示默认的createdAt,怎么格式化都无效.这里另设了一个属性替代createdAt,才实现  
 
 ##使用 pm2 
 > pm2 是 Node.js 下的生产环境进程管理工具，就是我们常说的进程守护工具。
@@ -152,4 +157,4 @@ npm start
 
 ---
 
-在此鸣谢作者提供的教程：[nswbmw/N-blog](https://github.com/nswbmw)
+在此鸣谢作者提供的教程：[N-blog](https://github.com/nswbmw)

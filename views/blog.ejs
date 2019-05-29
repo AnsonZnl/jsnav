@@ -1,12 +1,12 @@
 <%- include('header') %>
 
-<% if(blog.name){ %>
+<% if (blog.length >= 1) { %>
+<div class="wrap">
+
+<% if(blog[0].author._id == author){ %>
     <%- include('components/user-details') %>
 <% } %>
 
-<% if (blog.length >= 1) { %>
-
-<div class="wrap">
     <% blog.forEach(function (blog) { %>
     <div class='content-hide'>
   <div class="blog-content">

@@ -12,9 +12,10 @@ router.get('/', function (req, res, next) {
     BlogModel.getBlogs(author)
         .then(function (blog) {
             res.render('blog', {
-                blog: blog
+                blog: blog,
+                author: author
             })
-            // res.send(blog)
+            // res.send(blog);
         })
         .catch(next)
 })

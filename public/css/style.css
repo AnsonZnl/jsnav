@@ -63,6 +63,14 @@ body {
     margin:5px 0;  
     line-height: auto;
   }
+  .about{
+    text-align: center;
+  }
+  .about-img{
+    width:100px;
+    height: 100px;
+    border-radius: 3px;
+  }
 
   
   /* ---------- nav ---------- */
@@ -167,6 +175,39 @@ body {
 .content-hide{
   margin-bottom: 10px;
   overflow: hidden;
+}
+.btn-del {
+  border: none;
+  border-radius: 3px;
+  background:red!important;
+}
+.btn-eidt{
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+/* 留言 */
+.comment{
+  margin-bottom: 10px;
+  border-bottom: solid 1px #dedede;
+  padding-bottom: 10px;
+}
+.comment-content{
+    padding:7px;
+    background: #f7f8fa;
+    border-radius: 5px;
+    margin-bottom: 3px;
+}
+.metadata{
+  text-align: right;
+}
+.text-right{
+  text-align: right;
+}
+.article-buttom{
+  padding: 5px;
+  color: #999;
+  font-size: 13px;
 }
 /* footer */
 .copyright{

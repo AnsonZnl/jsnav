@@ -5,23 +5,25 @@
                 <h3 class="ui dividing header">留言</h3>
                 <% comments.forEach(function (comment) { %>
                     <div class="comment">
-            <a class="avatar" href="/blog?author=<%= user._id %>">
-                <% if(comment.author.avatar) { %>
-                    <img src="/img/<%= comment.author.avatar %>">
-                    <span><%= user.name %></span>
-                <% } else{ %>
-                    <img src="/img/avatar.png">
-                    <span><%= user.name %></span>
-                <% } %>
-            </a>
+                    <a class="avatar" href="/blog?author=<%= user._id %>">
+                    <% if(comment.author.avatar) { %>
+                        <img src="/img/<%= comment.author.avatar %>">
+                        <span><%= user.name %></span>
+                    <% } else{ %>
+                        <img src="/img/avatar.png">
+                        <span><%= user.name %></span>
+                    <% } %>
+                    </a>
                            
-                <div>评论内容：<%- comment.content %></div>
+                <div class="comment-content">
+                   <%- comment.content %>
+                </div>
                 <div class="metadata">
                     <span class="date"><%= comment.created_at %></span>
-                </div>
                 <% if (user && comment.author._id && user._id.toString() === comment.author._id.toString()) { %>
-                        <input type="button" value="删除" class="reply del_comment" data-comment-id="<%= comment._id %>">
+                    <input type="button" value="删除" class="btn-del button reply del_comment" data-comment-id="<%= comment._id %>">
                 <% } %>
+                </div>
                     </div>
                 <% }) %>
 

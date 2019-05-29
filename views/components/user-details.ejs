@@ -1,3 +1,11 @@
-<div>
-我是用户详情
+<div class="about">
+
+<%if(blog[0].author.avatar){%>
+    <p> <img class="about-img" src="/img/<%= blog[0].author.avatar %>"></p>
+<%}else{%>
+    <p> <img class="about-img" src="/img/avatar.png"></p>
+<%}%>
+    <p><%= blog[0].author.name %> | <%= ({m: '男', f: '女', x: '保密'})[blog[0].author.gender] %></p>
+    <p><%= blog[0].author.bio %></p>
 </div>
+<br>

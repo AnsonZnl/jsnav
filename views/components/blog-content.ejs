@@ -16,17 +16,22 @@
 
                 <h3><a href="/blog/<%= blog._id %>"><%= blog.title %></a></h3>
                 <div class="blog-content-hide"><%- blog.content %></div>
-                <div>
-                    <span class="tag"><%= blog.created_at %></span>
-                    <span class="tag right">
-                    <span>浏览(<%= blog.pv || 0 %>)</span>
-                    <span>留言(<%= blog.commentsCount || 0 %>)</span>
+                <br>
+                <div class="article-buttom text-right">
+                    <span><%= blog.created_at %></span>
+                    <span>
+                        <span>浏览(<%= blog.pv || 0 %>)</span>
+                        <span>留言(<%= blog.commentsCount || 0 %>)</span>
+                    </span>
+                    
+                    <div>
                         <% if (user && blog.author._id && user._id.toString() === blog.author._id.toString()) { %>
-                        <br>
-                        <a href="/blog/<%= blog._id %>/edit">编辑</a>
-                        <input type='button' value="删除" data-id="/<%= blog._id %>" id="del" onclick="del()">
+                          
+                            <a class="button btn-eidt" href="/blog/<%= blog._id %>/edit">编辑</a>
+                              <input class="btn-del button" type='button' value="删除" data-id="/<%= blog._id %>" id="del" onclick="del()">
 
-                        <% } %>
+                            <% } %>
+                    </div>
                 </div>
             </div>
         </div>

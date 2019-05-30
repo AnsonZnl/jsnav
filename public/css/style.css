@@ -1,193 +1,228 @@
 /* ---------- 全局样式 ---------- */
-
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    padding-top: 60px;
-  }
-
-  .wrap{
-    padding:0 6%;
-  }
-  .content{
-    display: flex;
-  }
-  .auto{
-      margin: auto;
-  }
-  h3 a{
-    display: block;
-    color: #333;
-    font-size: 1.21rem;
-  }
-  h3 a:hover{
-    color: #4fc08d;
-  }
-  a{
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: none;
-  }
-  
-  .button {
-    background-color: #4fc08d !important;
-    color: #fff !important;
-  }
-  .avatar{
-    width: 100%;
-    display: flex;
-    color: #333;
-  }
-  .avatar:hover{
-    color: #4fc08d;
-  }
-  .avatar img{
-    border-radius: 3px;
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-  }
-  .avatar span{
-    height: 35px;
-    line-height: 35px;
-    padding-left:8px;
-  }
-  .blog-content{
-    margin-bottom: 15px;
-  }
-.blog-content-hide{
-    font-size: 1.1rem;
-    letter-spacing:1px;
-  }
-  .blog-content-hide img{
-    width: 100%;
-  }
-  .blog-content-hide *{
-    line-height: 20px;
-  }
-  .content-hide h3{
-    margin:5px 0;  
-    line-height: auto;
-  }
-  .about{
-    text-align: center;
-  }
-  .about-img{
-    width:100px;
-    height: 100px;
-    border-radius: 3px;
-  }
-
-  
-  /* ---------- nav ---------- */
-  
-  .nav {
-    width: 100%;
-    margin-bottom: 20px;
-    color: #999;
-    /* margin: auto; */
-    position: fixed;
-    top: 0;
-    z-index: 999;
-    background: #FFF;
-    border-bottom: solid 1px #ddd;
-  }
-  .nav .logo{
-    flex-grow: 1;
-  }
-  .logo .go-home{
-    display: inline-block;
-    height: 52px;
-    padding:0 5px;
-    margin-left: 10%;
-    line-height: 52px;
-    font-size: 20px;
-    color: #4fc08d;
-  }
-  .nav .menu{
-    flex-grow: 1;
-    margin: auto;
-    padding-right: 30px;
-  }
-  .nav h1 {
-    color: #4fc08d;
-    margin: 10px 0;
-  }
-/* baner */
-.banner{
-    margin: auto;
-    text-align: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 60px;
 }
-/* ---------- nav-setting ---------- */
-  .navHide{
-    display: none;
-    }
-    .menu{
-        display: block;
-    }
-    .menu a{
-        float: right;
-        height: 55px;
-        line-height: 55px;
-        padding-left: 15px;
-        padding-right: 15px;
-        color: #333;
-    }
-    .menu a:hover{
-        color: #4fc08d;
-    }
-  .nav-setting {
-    position: fixed;
-    right: 30px;
-    top: 35px;
-    z-index: 999;
-  }
-  
-  .nav-setting .ui.dropdown.button {
-    padding: 10px 10px 0 10px;
-    background-color: #fff !important;
-  }
-  
-  .nav-setting .icon.bars {
-    color: #000;
-    font-size: 18px;
-  }
-  
-  /* ---------- post-content ---------- */
-  
-  .post-content{
-      margin: 0 auto;
-  }
 
-  .post-content h3 a {
-    color: #4fc08d !important;
-    font-size: 1rem;
+.wrap {
+  padding: 0 6%;
+}
+
+@media only screen and (min-width: 800px) {
+  .wrap {
+    padding: 0 13%;
   }
-  
-  .post-content .tag {
-    font-size: 13px;
-    margin-right: 5px;
-    color: #999;
+}
+
+@media only screen and (min-width: 1300px) {
+  .wrap {
+    padding: 0 20%;
   }
-  
-  .post-content .tag.right {
-    float: right;
-    margin-right: 0;
-  }
-  
-  .post-content .tag.right a {
-    color: #999;
-  }
-.content-hide{
+}
+
+.content {
+  display: flex;
+}
+
+.auto {
+  margin: auto;
+}
+
+h3 a {
+  display: block;
+  color: #333;
+  font-size: 1.21rem;
+}
+
+h3 a:hover {
+  color: #4fc08d;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.button {
+  background-color: #4fc08d !important;
+  color: #fff !important;
+}
+
+.avatar {
+  width: 100%;
+  display: flex;
+  color: #333;
+}
+
+.avatar:hover {
+  color: #4fc08d;
+}
+
+.avatar img {
+  border-radius: 3px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.avatar span {
+  height: 35px;
+  line-height: 35px;
+  padding-left: 8px;
+}
+
+.blog-content {
+  margin-bottom: 15px;
+}
+
+.blog-content-hide {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.blog-content-hide img {
+  width: 100%;
+}
+
+.blog-content-hide * {
+  line-height: 20px;
+}
+
+.content-hide h3 {
+  margin: 5px 0;
+  line-height: auto;
+}
+
+.about {
+  text-align: center;
+}
+
+.about-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 3px;
+}
+
+/* ---------- nav ---------- */
+.nav {
+  width: 100%;
+  margin-bottom: 20px;
+  color: #999;
+  /* margin: auto; */
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background: #FFF;
+  border-bottom: solid 1px #ddd;
+}
+
+.nav .logo {
+  flex-grow: 1;
+}
+
+.logo .go-home {
+  display: inline-block;
+  height: 52px;
+  padding: 0 5px;
+  line-height: 52px;
+  font-size: 20px;
+  color: #4fc08d;
+}
+
+.nav .menu {
+  flex-grow: 1;
+  margin: auto;
+  padding-right: 30px;
+}
+
+.nav h1 {
+  color: #4fc08d;
+  margin: 10px 0;
+}
+
+/* baner */
+h3.txt-center {
+  text-align: center;
+}
+
+/* ---------- nav-setting ---------- */
+.navHide {
+  display: none;
+}
+
+.menu {
+  display: block;
+}
+
+.menu a {
+  float: right;
+  height: 55px;
+  line-height: 55px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #333;
+}
+
+.menu a:hover {
+  color: #4fc08d;
+}
+
+.nav-setting {
+  position: fixed;
+  right: 30px;
+  top: 35px;
+  z-index: 999;
+}
+
+.nav-setting .ui.dropdown.button {
+  padding: 10px 10px 0 10px;
+  background-color: #fff !important;
+}
+
+.nav-setting .icon.bars {
+  color: #000;
+  font-size: 18px;
+}
+
+/* ---------- post-content ---------- */
+.post-content {
+  margin: 0 auto;
+}
+
+.post-content h3 a {
+  color: #4fc08d !important;
+  font-size: 1rem;
+}
+
+.post-content .tag {
+  font-size: 13px;
+  margin-right: 5px;
+  color: #999;
+}
+
+.post-content .tag.right {
+  float: right;
+  margin-right: 0;
+}
+
+.post-content .tag.right a {
+  color: #999;
+}
+
+.content-hide {
   margin-bottom: 10px;
   overflow: hidden;
 }
+
 .btn-del {
   border: none;
   border-radius: 3px;
-  background:red!important;
+  background: red !important;
   display: inline-block;
   border-radius: 3px;
   height: 21px;
@@ -196,7 +231,8 @@ body {
   line-height: 21px;
   font-size: 13px;
 }
-.btn-eidt{
+
+.btn-eidt {
   display: inline-block;
   border-radius: 3px;
   height: 21px;
@@ -205,53 +241,68 @@ body {
   line-height: 21px;
   font-size: 13px;
 }
+
 /* 留言 */
-.comment{
+.comment {
   margin-bottom: 10px;
   border-bottom: solid 1px #dedede;
   padding-bottom: 10px;
 }
-.comment-content{
-    padding:7px;
-    background: #f7f8fa;
-    border-radius: 5px;
-    margin-bottom: 3px;
+
+.comment-content {
+  padding: 7px;
+  background: #f7f8fa;
+  border-radius: 5px;
+  margin-bottom: 3px;
 }
-.metadata{
+
+.metadata {
   text-align: right;
 }
-.text-right{
+
+.text-right {
   text-align: right;
 }
-.article-buttom{
+
+.article-buttom {
   padding: 5px;
   color: #999;
   font-size: 13px;
 }
+
 /* footer */
-.copyright{
+.copyright {
   padding: 20px 0;
   text-align: center;
 }
-  /* 媒体查询 */
-
+/* 媒体查询 */
 @media only screen and (max-width: 600px) {
-    .ui.column.grid>[class*="eight wide"].column, .ui.grid>.column.row>[class*="eight wide"].column, .ui.grid>.row>[class*="eight wide"].column, .ui.grid>[class*="eight wide"].column {
-        width: 75%!important;
-    }
-    .ui.column.grid>[class*="four wide"].column, .ui.grid>.column.row>[class*="four wide"].column, .ui.grid>.row>[class*="four wide"].column, .ui.grid>[class*="four wide"].column {
-        width: 20%!important;
-    }
-    .navHide{
-        display: block;
-    }
-    .menu{
-        display: none;
-    }
-    .nav-setting {
-        top: 14px;
-    }
-    /* .ui.column.grid>[class*="four wide"].column, .ui.grid>.column.row>[class*="four wide"].column, .ui.grid>.row>[class*="four wide"].column, .ui.grid>[class*="four wide"].column {
-        width: 13%!important;
-    } */
+
+  .ui.column.grid>[class*="eight wide"].column,
+  .ui.grid>.column.row>[class*="eight wide"].column,
+  .ui.grid>.row>[class*="eight wide"].column,
+  .ui.grid>[class*="eight wide"].column {
+    width: 75% !important;
+  }
+
+  .ui.column.grid>[class*="four wide"].column,
+  .ui.grid>.column.row>[class*="four wide"].column,
+  .ui.grid>.row>[class*="four wide"].column,
+  .ui.grid>[class*="four wide"].column {
+    width: 20% !important;
+  }
+
+  .navHide {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .nav-setting {
+    top: 14px;
+  }
+
+  /* .ui.column.grid>[class*="four wide"].column, .ui.grid>.column.row>[class*="four wide"].column, .ui.grid>.row>[class*="four wide"].column, .ui.grid>[class*="four wide"].column { width: 13%!important; } */
 }

@@ -5,13 +5,13 @@
                 <h3 class="ui dividing header">留言</h3>
                 <% comments.forEach(function (comment) { %>
                     <div class="comment">
-                    <a class="avatar" href="/blog?author=<%= user._id %>">
+                    <a class="avatar" href="/blog?author=<%= comment.author._id %>">
                     <% if(comment.author.avatar) { %>
                         <img src="/img/<%= comment.author.avatar %>">
-                        <span><%= user.name %></span>
+                        <span><%= comment.author.name %></span>
                     <% } else{ %>
                         <img src="/img/avatar.png">
-                        <span><%= user.name %></span>
+                        <span><%= comment.author.name %></span>
                     <% } %>
                     </a>
                            

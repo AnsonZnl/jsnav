@@ -1,11 +1,11 @@
 {
-  "name": "myblog",
+  "name": "jsnav",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha test",
-    "start": "NODE_ENV=production pm2 start index.js --name 'myblog'"
+    "start": "NODE_ENV=production pm2 start index.js --name 'jsnav'"
   },
   "keywords": [],
   "author": "",

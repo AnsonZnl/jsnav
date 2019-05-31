@@ -29,11 +29,11 @@
 
                 <% if (user) { %>
                     <form class="ui reply form">
-                        <input id="blogId" name="blogId" value="<%= blog._id %>" hidden>
+                        <input id="comment-blogId" name="blogId" value="<%= blog._id %>" hidden>
                         <div class="field">
-                            <textarea id="content" name="content"></textarea>
+                            <textarea id="comment-content" name="content"></textarea>
                         </div>
-                        <input id="submit" type="button" class="ui icon button" value="留言"/>
+                        <input onclick="commentSubmit()" type="button" class="ui icon button" value="留言"/>
                     </form>
                 <% } %>
 
@@ -41,37 +41,3 @@
         </div>
     </div>
 </div>
-<script>
-    window.onload = function () {
-        //发表评论
-        $("#submit").on('click', function () {
-            var blogId = $('#blogId').val()
-            var content = $('#content').val()
-            if (blogId && content) {
-                $.ajax({
-                    url: '/comments',
-                    type: 'post',
-                    data: {blogId: blogId, content: content},
-                    success: function (r) {
-                        console.log(3, r)
-                        location.reload()
-                    }
-                })
-            } else {
-                alert('内容不能为空!')
-            }
-        });
-        //删除评论
-        $(".del_comment").on('click', function () {
-            var commentId = $(this).attr('data-comment-id');
-            $.ajax({
-                url: '/comments/' + commentId + '/remove',
-                type: 'get',
-                data: {commentId: commentId},
-                success: function (r) {
-                    location.reload()
-                }
-            })
-        });
-    }
-</script>

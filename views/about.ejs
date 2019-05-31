@@ -1,15 +1,59 @@
 <%- include('header') %>
 
 <div class="wrap">
-<h3>关于JsNav</h3>
+    <h3>关于JsNav</h3>
 
-<p>使用Express+mongoDB搭建的多人blog系统</p>
+    <p>使用Express+mongoDB搭建的多人blog系统</p>
 
-<p>因为做前端所以经常接触到Node，出于兴趣动手边学边做了一个简单的blog网站，纯属学习使用。代码已开源，欢迎star。</p>
+    <p>因为做前端所以经常接触到Node，出于兴趣动手边学边做了一个简单的blog网站，纯属学习使用。代码已开源，欢迎star。</p>
 
-<p><a href="https://github.com/AnsonZnl/jsnav">GitHub项目地址</a></p>
+    <p><a href="https://github.com/AnsonZnl/jsnav">GitHub项目地址</a></p>
 
-<p>联系我：1160030724@qq.com</p>
+    <p>联系我：1160030724@qq.com</p>
+<p>您有什么想说的，欢迎给我留言。</p>
+<br>
+    <div class="ui grid">
+        <div class="sixteen wide column">
+            <div class="ui minimal">
+                <h3 class="ui dividing header">留言板</h3>
+                <div class="message-content">
+                </div>
+
+                <form class="ui reply form">
+                    <p>姓名：</p>
+                    <input id="message-blogId" name="blogId" value="" >
+                    <p>内容：</p>
+                    <div class="field">
+                        <textarea id="message-content" name="content"></textarea>
+                    </div>
+                    <input onclick="messageSubmit()" type="button" class="ui icon button" value="留言" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="ui dividing header">留言</h3>
+    <div>
+    
+<% if(m.length !== 0){%>
+        <% m.forEach(function (m) { %>
+        <p>
+            <h4><%- m.author %></h4>
+        </p>
+        <div class="comment-content">
+            <%- m.content %>
+        </div>
+        <p class="metadata">
+            <span class="date"><%- m.created_at %></span>
+        </p>
+        <% }) %>
+<%}else{%>
+        <p>暂无留言</p>
+<%}%>
+    </div>
+
+
 </div>
+
 
 <%- include('footer') %>

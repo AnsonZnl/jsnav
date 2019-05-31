@@ -1,11 +1,9 @@
 var ip = 'http://localhost:3000'
-
-// 注册页
 function login(){
-            var name = $('#login-name').val();
+            var name = xssFliter($('#login-name').val());
             var password = $('#login-password').val();
             var repassword = $('#login-repassword').val();
-            var bio = $('#bio').val();
+            var bio = xssFliter($('#bio').val());
             var gender = $('#login-gender').val();
             var avatar;
             if ($('#file')[0].files.length == 1) {
@@ -87,8 +85,8 @@ function signin(){
 
 // 添加文章
 function blogCreate() {
-        var title = $('#blog-create-title').val()
-        var content = $('#blog-create-content').val()
+        var title = xssFliter($('#blog-create-title').val())
+        var content = xssFliter($('#blog-create-content').val())
         if (title && content) {
             $.ajax({
                 url: ip+'/blog/create',
@@ -110,8 +108,8 @@ function blogCreate() {
 }
 // 修改文章
 function editSubmit(){
-        var title = $('#edit-title').val()
-        var content = $('#edit-content').val()
+        var title = xssFliter($('#edit-title').val())
+        var content = xssFliter($('#edit-content').val())
         if (title && content) {
             $.ajax({
                 url: location.href,
@@ -156,15 +154,77 @@ $(document).ready(function () {
                 location.href = '/blog'
             }
         })
-    })
-    // $("#smllLogout").click(function () {
-    //     console.log(1)
-    //     $.ajax({
-    //         url: ip + 'logout',
-    //         type: 'get',
-    //         success: function (r) {
-    //             location.href = '/blog'
-    //         }
-    //     })
-    // })
+    })  
 })
+// 添加评论
+function commentSubmit() {
+    var blogId = $('#comment-blogId').val()
+    var content = xssFliter($('#comment-content').val())
+    if (blogId && content) {
+        $.ajax({
+            url: '/comments',
+            type: 'post',
+            data: {blogId: blogId, content: content},
+            success: function (r) {
+                console.log(3, r)
+                location.reload()
+            }
+        })
+    } else {
+        alert('内容不能为空!')
+    }
+}
+// 删除评论
+$(".del_comment").on('click', function () {
+    var commentId = $(this).attr('data-comment-id');
+    $.ajax({
+        url: '/comments/' + commentId + '/remove',
+        type: 'get',
+        data: {commentId: commentId},
+        success: function (r) {
+            location.reload()
+        }
+    })
+});
+
+// about 留言
+function messageSubmit() {
+    var blogId = xssFliter($('#message-blogId').val())
+    var content = xssFliter($('#message-content').val())
+
+    if (blogId && content) {
+        $.ajax({
+            url: '/about',
+            type: 'post',
+            data: {
+                blogId: blogId,
+                content: content
+            },
+            success: function (r) {
+                console.log(3, r)
+                location.reload()
+            }
+        })
+    } else {
+        alert('内容不能为空!')
+    }
+    
+}
+
+//xss
+function xssFliter(content){
+    var s = "";
+    if(content.length == 0) return "";
+    s = content.replace(/&/g," ");
+    s = s.replace(/</g," ");
+    s = s.replace(/>/g," ");
+    s = s.replace(/ /g," ");
+    s = s.replace(/\'/g," ");
+    s = s.replace(/\"/g," ");
+    s = s.replace(/eval/g," ");
+    s = s.replace(/&/g," ");
+    s = s.replace(/=/g," ");
+    s = s.replace(/\(/g," ");
+    s = s.replace(/\)/g," ");
+    return s;  
+}
